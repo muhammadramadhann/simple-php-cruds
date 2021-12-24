@@ -31,12 +31,23 @@ if (isset($_POST["search"])) {
 
     <!-- style -->
     <style>
+      .container .d-flex {
+        align-items: center;
+      }
+
       @media screen and (max-width: 1200px) {
         .update, .delete {
           width: 100%;
         }
         .update {
           margin-bottom: 4px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .container .d-flex {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
@@ -46,8 +57,9 @@ if (isset($_POST["search"])) {
   <body>
     <?php include('navbar.php') ?>
     <div class="container py-3 mx-auto">
-      <div class="my-3">
-        <h3 class="text-center fw-bold mb-4">Data Penumpang</h3>
+      <div class="my-3 d-flex justify-content-between mb-4">
+        <h3 class="fw-bold">Data Penumpang</h3>
+        <a class="btn btn-primary" href="create.php">+ Tambah Data</a>
       </div>
       
       <div class="border rounded p-4 table-responsive-xl">
@@ -85,8 +97,6 @@ if (isset($_POST["search"])) {
         </table>
       </div>
     </div>
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <?php include('footer.php'); ?>
   </body>
 </html>
